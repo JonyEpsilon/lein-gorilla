@@ -21,5 +21,5 @@
     (when-let [w (get opts-map ":worksheet")] ())
     (eval/eval-in-project
       prj
-      `(g/run-gorilla-server)
+      `(g/run-gorilla-server {})
       '(require 'gorilla-repl.core))))
