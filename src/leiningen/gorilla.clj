@@ -15,11 +15,12 @@
 (defn ^:no-project-needed gorilla
   [project & opts]
   (let [opts-map (apply hash-map opts)
+        port (read-string (or (get opts-map ":port") "8990"))
         curr-deps (or (:dependencies project) [])
         new-deps (conj curr-deps '[gorilla-repl/gorilla-repl "0.1.0-SNAPSHOT"])
         prj (assoc project :dependencies new-deps)]
     (when-let [w (get opts-map ":worksheet")] ())
     (eval/eval-in-project
       prj
-      `(g/run-gorilla-server {})
+      `(g/run-gorilla-server {:port ~port})
       '(require 'gorilla-repl.core))))
