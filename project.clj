@@ -1,6 +1,6 @@
-(defproject lein-gorilla "0.1.2"
+(defproject lein-gorilla "0.1.3-SNAPSHOT"
   :description "A Leiningen plugin for the Gorilla REPL."
   :url "https://github.com/JonyEpsilon/lein-gorilla"
   :license {:name "MIT"}
-  :dependencies [[gorilla-repl "0.1.2"]]
+  :dependencies [[gorilla-repl "0.1.3-SNAPSHOT"]]
   :eval-in-leiningen true)
