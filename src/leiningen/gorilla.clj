@@ -15,11 +15,12 @@
   [project & opts]
   (let [opts-map (apply hash-map opts)
         port (read-string (or (get opts-map ":port") "8990"))
+        nrepl-port (read-string (or (get opts-map ":nrepl-port") "0"))
+        ;; inject the gorilla-repl dependency into the target project
         curr-deps (or (:dependencies project) [])
         new-deps (conj curr-deps '[gorilla-repl/gorilla-repl "0.1.3-SNAPSHOT"])
         prj (assoc project :dependencies new-deps)]
-    (when-let [w (get opts-map ":worksheet")] ())
     (eval/eval-in-project
       prj
-      `(g/run-gorilla-server {:port ~port})
+      `(g/run-gorilla-server {:port ~port :nrepl-port ~nrepl-port})
       '(require 'gorilla-repl.core))))
