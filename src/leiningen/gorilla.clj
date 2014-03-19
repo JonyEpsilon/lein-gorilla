@@ -18,7 +18,7 @@
         nrepl-port (read-string (or (get opts-map ":nrepl-port") "0"))
         ;; inject the gorilla-repl dependency into the target project
         curr-deps (or (:dependencies project) [])
-        new-deps (conj curr-deps '[gorilla-repl/gorilla-repl "0.2.0-SNAPSHOT"])
+        new-deps (conj curr-deps '[gorilla-repl/gorilla-repl "0.2.0"])
         prj (assoc project :dependencies new-deps)]
     (eval/eval-in-project
       prj
