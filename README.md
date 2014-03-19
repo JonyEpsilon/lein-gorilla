@@ -1,6 +1,6 @@
 # lein-gorilla
 
-A Leiningen plugin for the Gorilla REPL. See the [Gorilla REPL repository](https://github.com/JonyEpsilon/gorilla-repl)
+A Leiningen plugin for the Gorilla REPL. See the [Gorilla REPL website](http://gorilla-repl.org)
 for more info.
 
 ## Licence
