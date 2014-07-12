@@ -22,5 +22,5 @@
         prj (assoc project :dependencies new-deps)]
     (eval/eval-in-project
       prj
-      `(g/run-gorilla-server {:port ~port :nrepl-port ~nrepl-port})
+      `(g/run-gorilla-server {:port ~port :nrepl-port ~nrepl-port :plugins? true})
       '(require 'gorilla-repl.core))))
