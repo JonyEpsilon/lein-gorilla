@@ -23,11 +23,13 @@
         curr-deps (or (:dependencies project) [])
         new-deps (conj curr-deps ['gorilla-repl/gorilla-repl gorilla-version])
         prj (assoc project :dependencies new-deps)
-        project-name (:name project)]
+        project-name (:name project)
+        gorilla-options (:gorilla-options project)]
     (eval/eval-in-project
       prj
       `(g/run-gorilla-server {:port ~port
                               :nrepl-port ~nrepl-port
                               :version ~gorilla-version
-                              :project ~project-name})
+                              :project ~project-name
+                              :gorilla-options ~gorilla-options})
       '(require 'gorilla-repl.core))))
