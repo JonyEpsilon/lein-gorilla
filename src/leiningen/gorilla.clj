@@ -14,7 +14,7 @@
 
 ;; This is the leiningen task. It needs no arguments, and can run outside a project (assuming you've got the plugin
 ;; installed in your profile).
-(defn ^:no-project-needed gorilla
+(defn gorilla
   [project & opts]
   (let [opts-map (apply hash-map opts)
         port (read-string (or (get opts-map ":port") "8990"))
