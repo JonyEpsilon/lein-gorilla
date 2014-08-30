@@ -17,7 +17,7 @@
 (defn gorilla
   [project & opts]
   (let [opts-map (apply hash-map opts)
-        port (read-string (or (get opts-map ":port") "8990"))
+        port (read-string (or (get opts-map ":port") "0"))
         ip (or (get opts-map ":ip") "127.0.0.1")
         nrepl-port (read-string (or (get opts-map ":nrepl-port") "0"))
         ;; inject the gorilla-repl dependency into the target project
