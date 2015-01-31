@@ -17,15 +17,15 @@
 (defn gorilla
   [project & opts]
   (let [opts-map (apply hash-map opts)
-        port (read-string (or (get opts-map ":port") "0"))
-        ip (or (get opts-map ":ip") "127.0.0.1")
+        gorilla-options (:gorilla-options project)
+        port (or (:port gorilla-options) (read-string (or (get opts-map ":port") "0")))
+        ip (or (:ip gorilla-options) (get opts-map ":ip") "127.0.0.1")
         nrepl-port (read-string (or (get opts-map ":nrepl-port") "0"))
         ;; inject the gorilla-repl dependency into the target project
         curr-deps (or (:dependencies project) [])
         new-deps (conj curr-deps ['gorilla-repl/gorilla-repl gorilla-version])
         prj (assoc project :dependencies new-deps)
-        project-name (:name project)
-        gorilla-options (:gorilla-options project)]
+        project-name (:name project)]
     (eval/eval-in-project
       prj
       `(g/run-gorilla-server {:port ~port
