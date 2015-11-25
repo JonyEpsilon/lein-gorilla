@@ -10,7 +10,7 @@
             [clojure.pprint :as pp]))
 
 ;; The version of Gorilla that we will use
-(def gorilla-version "0.3.5-SNAPSHOT")
+(def gorilla-version "0.3.5")
 
 ;; This is the leiningen task. It needs no arguments, and can run outside a project (assuming you've got the plugin
 ;; installed in your profile).
