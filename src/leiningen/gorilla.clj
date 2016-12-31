@@ -22,7 +22,7 @@
         nrepl-port (read-string (or (get opts-map ":nrepl-port") "0"))
         ;; inject the gorilla-repl dependency into the target project
         curr-deps (or (:dependencies project) [])
-        new-deps (conj curr-deps ['org.clojars.benfb/gorilla-repl gorilla-version])
+        new-deps (conj curr-deps ['gorilla-repl/gorilla-repl gorilla-version])
         prj (assoc project :dependencies new-deps)
         project-name (:name project)
         gorilla-options (:gorilla-options project)]
