@@ -20,6 +20,7 @@
         port (read-string (or (get opts-map ":port") "0"))
         ip (or (get opts-map ":ip") "127.0.0.1")
         nrepl-port (read-string (or (get opts-map ":nrepl-port") "0"))
+        nrepl-host (or (get opts-map ":nrepl-host") "127.0.0.1")
         ;; inject the gorilla-repl dependency into the target project
         curr-deps (or (:dependencies project) [])
         new-deps (conj curr-deps ['gorilla-repl/gorilla-repl gorilla-version])
@@ -31,6 +32,7 @@
       `(g/run-gorilla-server {:port ~port
                               :ip ~ip
                               :nrepl-port ~nrepl-port
+                              :nrepl-host ~nrepl-host
                               :version ~gorilla-version
                               :project ~project-name
                               :gorilla-options ~gorilla-options})
