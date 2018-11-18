@@ -10,7 +10,7 @@
             [clojure.pprint :as pp]))
 
 ;; The version of Gorilla that we will use
-(def gorilla-version "0.4.0")
+(def gorilla-version "0.5.0")
 
 ;; This is the leiningen task. It needs no arguments, and can run outside a project (assuming you've got the plugin
 ;; installed in your profile).
@@ -22,7 +22,7 @@
         nrepl-port (read-string (or (get opts-map ":nrepl-port") "0"))
         ;; inject the gorilla-repl dependency into the target project
         curr-deps (or (:dependencies project) [])
-        new-deps (conj curr-deps ['gorilla-repl/gorilla-repl gorilla-version])
+        new-deps (conj curr-deps ['org.clojars.benfb/gorilla-repl gorilla-version])
         prj (assoc project :dependencies new-deps)
         project-name (:name project)
         gorilla-options (:gorilla-options project)]
